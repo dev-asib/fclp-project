@@ -63,7 +63,7 @@ class _BusinessAccountLoginFormSectionState
                         size: 30,
                       ),
                     ),
-                    validator: FormValidationController.validatePassword,
+                    validator: FormValidationController.validateMobileNumber,
                   ),
                 ),
                 const SizedBox(
