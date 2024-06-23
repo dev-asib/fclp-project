@@ -1,14 +1,14 @@
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
-AppBar CustomAppBar() {
+AppBar customAppBar() {
   return AppBar(
     surfaceTintColor: AppColors.white,
-    title: Text("FCLP"),
+    title: const Text("FCLP"),
     actions: [
       IconButton(
         onPressed: () {},
-        icon: Icon(Icons.notifications_outlined),
+        icon: const Icon(Icons.notifications_outlined),
       ),
     ],
   );

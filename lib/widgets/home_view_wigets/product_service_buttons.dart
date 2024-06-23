@@ -14,48 +14,71 @@ class ProductSeviceButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(
+        vertical: 10.0,
+      ),
       color: AppColors.backgroundColor,
       child: Row(
-        // alignment: WrapAlignment.center,
-        // spacing: 20.0, // Adjust the spacing between the items
-        // runSpacing: 10.0, //
-        // Adjust the vertical spacing between rows
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ServiceButtons(
             imagePath: 'assets/air_ticket.png',
             label: 'এয়ার টিকেট',
-            onTabService: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const AirTicketView()));
+            onTabService: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AirTicketView(),
+                ),
+              );
             },
           ),
           ServiceButtons(
             imagePath: 'assets/newspapers.png',
             label: 'নিউজ পেপার',
-            onTabService: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const NewsPaperView()));
+            onTabService: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NewsPaperView(),
+                ),
+              );
             },
           ),
           ServiceButtons(
             imagePath: 'assets/online_shop.png',
             label: 'অনলাইন শপ',
-            onTabService: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const OnlineShopCategoryView()));
+            onTabService: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const OnlineShopCategoryView(),
+                ),
+              );
             },
           ),
           ServiceButtons(
             imagePath: 'assets/blood_bank.png',
             label: 'ব্লাড ব্যাংক',
-            onTabService: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const BloodBannkView()));
+            onTabService: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const BloodBannkView(),
+                ),
+              );
             },
           ),
           ServiceButtons(
             imagePath: 'assets/online_doctor.png',
             label: 'অনলাইন ডাক্তার',
-            onTabService: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const OnlineDoctorView()));
+            onTabService: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const OnlineDoctorView(),
+                ),
+              );
             },
           ),
         ],

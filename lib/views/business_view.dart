@@ -15,8 +15,8 @@ class _BusinessViewState extends State<BusinessView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
-      drawer: CustomDrawer(
+      appBar: customAppBar(),
+      drawer: const CustomDrawer(
         fromBusinessView: true,
       ),
       body: Center(
@@ -30,11 +30,15 @@ class _BusinessViewState extends State<BusinessView> {
                   height: 70,
                   width: double.maxFinite,
                   alignment: Alignment.center,
-                  padding: EdgeInsets.all(6),
+                  padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(color: AppColors.green, width: 3)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(
+                      color: AppColors.green,
+                      width: 3,
+                    ),
+                  ),
                   child: FittedBox(
                     child: Column(
                       children: [
@@ -50,55 +54,54 @@ class _BusinessViewState extends State<BusinessView> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   height: 100,
                   width: double.maxFinite,
                   decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(
-                      color: AppColors.red,
-                      width: 3
-                    )
-                  ),
-                  child: Center(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: AppColors.red, width: 3)),
+                  child: const Center(
                       child: FittedBox(
                     child: Column(
                       children: [
                         Text(
                           "একাউন্ট খুলতে পেমেন্ট করুন।",
                           style: TextStyle(
-                              color: AppColors.red,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24),
+                            color: AppColors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
                         ),
                         Text(
                           "বিকাশ নাম্বার: ০১৭৭৭৭৭৭৭৭৭",
                           style: TextStyle(
-                              color: AppColors.red,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                            color: AppColors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
                         ),
                         Text(
                           "নগদ নাম্বার: ০১৭৭৭৭৭৭৭৭৭",
                           style: TextStyle(
-                              color: AppColors.red,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                            color: AppColors.red,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
                         ),
                       ],
                     ),
                   )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                BusinessAccountLoginFormSection(),
-                SizedBox(
+                const BusinessAccountLoginFormSection(),
+                const SizedBox(
                   height: 24,
                 ),
                 Text(

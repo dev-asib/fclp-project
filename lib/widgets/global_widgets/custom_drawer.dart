@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomDrawer extends StatefulWidget {
-  CustomDrawer({
+  const CustomDrawer({
     super.key,
     this.fromHomeView = false,
     this.fromIncomePointView = false,
@@ -23,12 +23,12 @@ class CustomDrawer extends StatefulWidget {
     this.fromRefferIdView = false,
   });
 
-  bool fromHomeView;
-  bool fromIncomePointView;
-  bool fromProfileView;
-  bool fromSystemView;
-  bool fromBusinessView;
-  bool fromRefferIdView;
+  final bool fromHomeView;
+  final bool fromIncomePointView;
+  final bool fromProfileView;
+  final bool fromSystemView;
+  final bool fromBusinessView;
+  final bool fromRefferIdView;
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -44,7 +44,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Container(
             height: 200,
             width: double.maxFinite,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: AppColors.white,
               border: Border(
                 bottom: BorderSide(
@@ -64,32 +64,37 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       Container(
                         height: 70,
                         width: 70,
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                                image: AssetImage(AssetsPahts.profile))),
+                        decoration: const BoxDecoration(
+                          color: Colors.green,
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage(AssetsPahts.profile),
+                          ),
+                        ),
                       ),
-                      Text(
+                      const Text(
                         "এফ সি এল পি",
                         style: TextStyle(
-                            color: AppColors.green,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
+                          color: AppColors.green,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      Text(
+                      const Text(
                         "01777000999",
                         style: TextStyle(
-                            color: AppColors.red,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17),
+                          color: AppColors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
                       ),
-                      Text(
+                      const Text(
                         "User Account",
                         style: TextStyle(
-                            color: AppColors.green,
-                            fontSize: 17,
-                            fontWeight: FontWeight.bold),
+                          color: AppColors.green,
+                          fontSize: 17,
+                          fontWeight: FontWeight.bold,
+                        ),
                       )
                     ],
                   ),
@@ -100,23 +105,25 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   right: 0,
                   bottom: -70,
                   child: Container(
-                    margin: EdgeInsets.all(50),
+                    margin: const EdgeInsets.all(50),
                     child: ElevatedButton(
                       style: drawerButtonStyle,
                       onPressed: () {},
-                      child: Text("Account Complete 8%"),
+                      child: const Text("Account Complete 8%"),
                     ),
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           InkWell(
-            onTap: () => _onTapHomeButton(fromHomeView: widget.fromHomeView),
-            child: Card(
+            onTap: () => _onTapHomeButton(
+              fromHomeView: widget.fromHomeView,
+            ),
+            child: const Card(
               child: ListTile(
                 leading: CircleAvatar(
                   child: FaIcon(
@@ -129,9 +136,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () =>
-                _onTapProfileButton(fromProfileView: widget.fromProfileView),
-            child: Card(
+            onTap: () => _onTapProfileButton(
+              fromProfileView: widget.fromProfileView,
+            ),
+            child: const Card(
               child: ListTile(
                 leading: CircleAvatar(
                   child: FaIcon(
@@ -146,7 +154,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           InkWell(
             onTap: () => _onTapIncomePointButton(
                 fromIncomePiointView: widget.fromIncomePointView),
-            child: Card(
+            child: const Card(
               child: ListTile(
                 leading: CircleAvatar(
                   child: FaIcon(
@@ -158,7 +166,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
             ),
           ),
-          InkWell(
+          const InkWell(
             onTap: UrlLauncherController.makePhoneCall,
             child: Card(
               child: ListTile(
@@ -173,9 +181,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () =>
-                _onTapBusinessButton(fromBusinessView: widget.fromBusinessView),
-            child: Card(
+            onTap: () => _onTapBusinessButton(
+              fromBusinessView: widget.fromBusinessView,
+            ),
+            child: const Card(
               child: ListTile(
                 leading: CircleAvatar(
                   child: FaIcon(
@@ -188,8 +197,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: ()=>_onTapRefferIDButton(fromRefferIdView: widget.fromRefferIdView),
-            child: Card(
+            onTap: () => _onTapRefferIDButton(
+              fromRefferIdView: widget.fromRefferIdView,
+            ),
+            child: const Card(
               child: ListTile(
                 leading: CircleAvatar(
                   child: FaIcon(
@@ -202,9 +213,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
           InkWell(
-            onTap: () =>
-                _onTapSystemButton(fromSystemView: widget.fromSystemView),
-            child: Card(
+            onTap: () => _onTapSystemButton(
+              fromSystemView: widget.fromSystemView,
+            ),
+            child: const Card(
               child: ListTile(
                 leading: CircleAvatar(
                   child: FaIcon(
@@ -218,7 +230,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           InkWell(
             onTap: _onTapLogOutButton,
-            child: Card(
+            child: const Card(
               child: ListTile(
                 leading: CircleAvatar(
                   child: Icon(
@@ -235,7 +247,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  void _onTapIncomePointButton({required bool fromIncomePiointView}) {
+  void _onTapIncomePointButton({
+    required bool fromIncomePiointView,
+  }) {
     if (fromIncomePiointView) {
       return;
     }
@@ -247,7 +261,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  void _onTapHomeButton({required bool fromHomeView}) {
+  void _onTapHomeButton({
+    required bool fromHomeView,
+  }) {
     if (fromHomeView) {
       return;
     }
@@ -259,7 +275,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
         (route) => false);
   }
 
-  void _onTapProfileButton({required bool fromProfileView}) {
+  void _onTapProfileButton({
+    required bool fromProfileView,
+  }) {
     if (fromProfileView) {
       return;
     }
@@ -271,7 +289,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  void _onTapSystemButton({required bool fromSystemView}) {
+  void _onTapSystemButton({
+    required bool fromSystemView,
+  }) {
     if (fromSystemView) {
       return;
     }
@@ -283,7 +303,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  void _onTapRefferIDButton({required bool fromRefferIdView}) {
+  void _onTapRefferIDButton({
+    required bool fromRefferIdView,
+  }) {
     if (fromRefferIdView) {
       return;
     }
@@ -295,7 +317,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
-  void _onTapBusinessButton({required bool fromBusinessView}) {
+  void _onTapBusinessButton({
+    required bool fromBusinessView,
+  }) {
     if (fromBusinessView) {
       return;
     }

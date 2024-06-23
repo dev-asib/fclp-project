@@ -1,7 +1,7 @@
 import 'package:fclp_app/utils/assets_pahts.dart';
 import 'package:flutter/material.dart';
 
-class ProdudctCategoryViewController extends ChangeNotifier{
+class ProdudctCategoryViewController extends ChangeNotifier {
   List<Map<dynamic, dynamic>> productCategoryViewData = [
     {
       'title': 'কাগজ',

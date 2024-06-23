@@ -1,10 +1,7 @@
 import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/themes/theme.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/utils/constants.dart';
-import 'package:fclp_app/views/order_confirmation_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
-import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
 
 class DeliveryAddressFormView extends StatefulWidget {
@@ -25,24 +22,25 @@ class _DeliveryAddressFormViewState extends State<DeliveryAddressFormView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: customAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Form(
             key: _formKey,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
-                Text(
+                const Text(
                   "সরবরাহের ঠিকানা",
                   style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "BlackOpsOne",
-                      color: AppColors.themeColor),
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "BlackOpsOne",
+                    color: AppColors.themeColor,
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 TextFormField(
@@ -50,17 +48,18 @@ class _DeliveryAddressFormViewState extends State<DeliveryAddressFormView> {
                   decoration: textFormInputDecoration(hintText: "গ্রাহকের নাম"),
                   validator: FormValidationController.validateName,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 TextFormField(
                   controller: _addressTEController,
                   decoration: textFormInputDecoration(
-                      hintText: "গ্রাহকের সম্পূর্ণ ঠিকানা"),
+                    hintText: "গ্রাহকের সম্পূর্ণ ঠিকানা",
+                  ),
                   maxLines: 4,
                   validator: FormValidationController.validateAddress,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 8,
                 ),
                 TextFormField(
@@ -70,14 +69,14 @@ class _DeliveryAddressFormViewState extends State<DeliveryAddressFormView> {
                       textFormInputDecoration(hintText: "গ্রাহকের ফোন নাম্বার"),
                   validator: FormValidationController.validateMobileNumber,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 ElevatedButton(
                   onPressed: () =>
                       FormValidationController.handleDeliveryNextStep(
                           context, _formKey),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("পরবর্তী ধাপে যান"),

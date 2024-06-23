@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-class AppColors{
+
+class AppColors {
   static const Color themeColor = Colors.green;
   static Color backgroundColor = Colors.green.shade50;
   static const Color green = Colors.green;

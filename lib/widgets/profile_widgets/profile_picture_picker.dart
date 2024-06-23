@@ -1,12 +1,13 @@
+import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 Widget profilePicturePicker() {
   return Container(
     height: 150,
     width: 150,
-    padding: EdgeInsets.all(25),
+    padding: const EdgeInsets.all(25),
     alignment: Alignment.bottomRight,
-    decoration: BoxDecoration(
+    decoration: const BoxDecoration(
       color: Colors.white,
       shape: BoxShape.circle,
       image: DecorationImage(
@@ -17,14 +18,16 @@ Widget profilePicturePicker() {
       ),
     ),
     child: Container(
-      color: Colors.white,
+      color: AppColors.white,
       width: 60,
-      child: Row(
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             "Edit",
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(
+              fontSize: 16,
+            ),
           ),
           SizedBox(
             width: 10,

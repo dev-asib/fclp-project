@@ -14,15 +14,16 @@ class _WithdrawInfoSectionState extends State<WithdrawInfoSection> {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "উইথড্র",
               style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 17),
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 17,
+              ),
             ),
             Text(
               "- ট 100",
@@ -40,31 +41,36 @@ class _WithdrawInfoSectionState extends State<WithdrawInfoSection> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "0177777777777",
                   style: TextStyle(
-                      color: AppColors.grey,
-                      fontWeight: FontWeight.bold),
+                    color: AppColors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Text(
                   DateFormat.yMd()
                       .add_jms()
-                      .format(DateTime.now())
+                      .format(
+                        DateTime.now(),
+                      )
                       .toString(),
-                  style: TextStyle(
-                      color: AppColors.grey,
-                      fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    color: AppColors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
                 )
               ],
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Transaction ID: BF9827CD",
                   style: TextStyle(
-                      color: AppColors.grey,
-                      fontWeight: FontWeight.bold),
+                    color: AppColors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 Icon(
                   Icons.arrow_forward_ios,

@@ -15,7 +15,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => ProdudctCategoryViewController()),
         ChangeNotifierProvider(create: (context) => ProductController()),
       ],
-      child: FCLP(),
+      child: const FCLP(),
     ),
   );
 }

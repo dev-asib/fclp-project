@@ -16,7 +16,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar:CustomAppBar(),
+        appBar:customAppBar(),
         drawer: _loginViewDrawer(context),
         body: Center(
           child: Column(

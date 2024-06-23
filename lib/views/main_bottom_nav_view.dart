@@ -1,5 +1,4 @@
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/views/business_view.dart';
 import 'package:fclp_app/views/home_view.dart';
 import 'package:fclp_app/views/my_cart_view.dart';
 import 'package:fclp_app/views/wishlist_view.dart';
@@ -7,21 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class MainBottomNavView extends StatefulWidget {
-
+  const MainBottomNavView({super.key});
 
   @override
-  _MainBottomNavViewState createState() => _MainBottomNavViewState();
+  State<MainBottomNavView> createState() => _MainBottomNavViewState();
 }
 
 class _MainBottomNavViewState extends State<MainBottomNavView> {
-
-
   int _selectedIndex = 0;
 
-  static List<Widget> _screen = <Widget>[
-    HomeView(),
-    MyCartView(),
-    WishlistView()
+  final List<Widget> _screen = [
+    const HomeView(),
+    const MyCartView(),
+    const WishlistView()
   ];
 
   @override
@@ -30,7 +27,7 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
       child: Scaffold(
         body: _screen[_selectedIndex],
         bottomNavigationBar: GNav(
-          padding: EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
           backgroundColor: Colors.deepPurple.shade50,
           selectedIndex: _selectedIndex,
           onTabChange: _onItemTapped,
@@ -40,9 +37,9 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
           iconSize: 30,
           activeColor: AppColors.white,
           tabBackgroundColor: AppColors.green,
-          tabMargin: EdgeInsets.all(16),
+          tabMargin: const EdgeInsets.all(16),
           color: AppColors.green,
-          tabs: [
+          tabs: const [
             GButton(
               icon: Icons.home,
               text: "হোম",
@@ -63,9 +60,11 @@ class _MainBottomNavViewState extends State<MainBottomNavView> {
 
   void _onItemTapped(int index) {
     if (mounted) {
-      setState(() {
-        _selectedIndex = index;
-      });
+      setState(
+        () {
+          _selectedIndex = index;
+        },
+      );
     }
   }
 }

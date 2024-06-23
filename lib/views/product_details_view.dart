@@ -8,7 +8,10 @@ import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/global_widgets/product_grid_view.dart';
 
 class ProductDetailsView extends StatefulWidget {
-  const ProductDetailsView({Key? key, required this.productIndex});
+  const ProductDetailsView({
+    super.key,
+    required this.productIndex,
+  });
 
   final int productIndex;
 
@@ -25,9 +28,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
     final bool isShopping = product.isShopping;
 
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: customAppBar(),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,22 +44,22 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               product.title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.green,
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 RichText(
                   text: TextSpan(
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.red,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
@@ -66,9 +69,9 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                         text:
                             "৳ ${productController.calculateDiscountedPrice(product).toStringAsFixed(2)}",
                       ),
-                      TextSpan(text: "\t\t"),
+                      const TextSpan(text: "\t\t"),
                       TextSpan(
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppColors.grey,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -83,7 +86,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
                 Text(
                   "(discount ${product.discountPrice.toString()}%)",
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.green,
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -91,16 +94,17 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      color: AppColors.green,
-                      borderRadius: BorderRadius.circular(8)),
-                  child: Text(
+                    color: AppColors.green,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Text(
                     'পণ্যের বিবরণ',
                     style: TextStyle(
                       color: AppColors.white,
@@ -113,9 +117,8 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                   onPressed: () {
                     productController.addToCart(
                       widget.productIndex,
-                      product, 
+                      product,
                     );
-                    print(productController.productShoppingCartList);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
@@ -136,10 +139,10 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                           size: 30,
                           color: AppColors.white,
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Text(
                           isShopping == false ? "কার্টে যুক্ত" : "যুক্ত হয়েছে",
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -151,21 +154,26 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(
+              height: 16,
+            ),
             Text(
               product.description,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.green,
                 fontSize: 17,
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(
+              height: 16,
+            ),
             Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                  color: AppColors.green,
-                  borderRadius: BorderRadius.circular(8)),
-              child: Text(
+                color: AppColors.green,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Text(
                 'প্রয়োজনীয় পণ্য',
                 style: TextStyle(
                   color: AppColors.white,
@@ -174,7 +182,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                 ),
               ),
             ),
-            ProductGridView(),
+            const ProductGridView(),
           ],
         ),
       ),

@@ -14,10 +14,11 @@ class _NagadWithdrawHistoryViewState extends State<NagadWithdrawHistoryView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return WithdrawInfoSection();
-          }),
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return const WithdrawInfoSection();
+        },
+      ),
     );
   }
 }

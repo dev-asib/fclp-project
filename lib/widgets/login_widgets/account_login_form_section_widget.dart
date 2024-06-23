@@ -1,16 +1,12 @@
 import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
-import 'package:fclp_app/utils/constants.dart';
-import 'package:fclp_app/views/main_bottom_nav_view.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AccountLoginFormSection extends StatefulWidget {
-  AccountLoginFormSection({
+  const AccountLoginFormSection({
     super.key,
   });
-
 
   @override
   State<AccountLoginFormSection> createState() =>
@@ -18,7 +14,6 @@ class AccountLoginFormSection extends StatefulWidget {
 }
 
 class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
-
   final _mobileNumberTEController = TextEditingController();
   final _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
@@ -28,7 +23,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50),
@@ -39,7 +34,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
           key: _formKey,
           autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -57,7 +52,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                     child: TextFormField(
                       controller: _mobileNumberTEController,
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "মোবাইল নাম্বার",
                         prefixIcon: Icon(
                           Icons.phone_outlined,
@@ -84,7 +79,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                       obscureText: passwordVisibility,
                       decoration: InputDecoration(
                         hintText: "পাসওয়ার্ড",
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.lock_outline,
                           size: 30,
                         ),
@@ -92,17 +87,16 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                           onTap: () {
                             if (mounted) {
                               setState(() {
-                                passwordVisibility =
-                                    !passwordVisibility;
+                                passwordVisibility = !passwordVisibility;
                               });
                             }
                           },
                           child: passwordVisibility == true
-                              ? Icon(
+                              ? const Icon(
                                   Icons.visibility_off,
                                   size: 30,
                                 )
-                              : Icon(
+                              : const Icon(
                                   Icons.visibility,
                                   size: 30,
                                 ),
@@ -127,12 +121,12 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                   ElevatedButton(
                     onPressed: () =>
                         FormValidationController.handleLogin(context, _formKey),
-                    child: Text("লগইন করুন"),
+                    child: const Text("লগইন করুন"),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "এখনো একাউন্ট করেন নি?",
                     style: TextStyle(color: Colors.black, fontSize: 16),
                   ),
@@ -147,7 +141,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
                             "মোবাইল নাম্বার এবং পাসওয়ার্ড অবশ্যই দিতে হবে।",
                       );
                     },
-                    child: Text("রেজিস্ট্রেশন করুন"),
+                    child: const Text("রেজিস্ট্রেশন করুন"),
                   ),
                   const SizedBox(
                     height: 24,
@@ -160,6 +154,7 @@ class _AccountLoginFormSectionState extends State<AccountLoginFormSection> {
       ),
     );
   }
+
   @override
   void dispose() {
     _mobileNumberTEController.dispose();

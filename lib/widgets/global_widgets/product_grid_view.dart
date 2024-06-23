@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProductGridView extends StatelessWidget {
-  const ProductGridView({Key? key}) : super(key: key);
+  const ProductGridView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,11 @@ class ProductGridView extends StatelessWidget {
             productImg: product.img,
             productTitle: product.title,
             productOriginalPrice: product.originalPrice.toString(),
-            productDiscountPrice: productController.calculateDiscountedPrice(product).toString(),
+            productDiscountPrice:
+                productController.calculateDiscountedPrice(product).toString(),
             isFavorite: product.isFavorite,
-            toggleFavorite: () => productController.toggleFavoriteStatus(product),
+            toggleFavorite: () =>
+                productController.toggleFavoriteStatus(product),
           ),
         );
       },

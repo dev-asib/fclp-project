@@ -14,7 +14,7 @@ class _IncomePointHistoryViewState extends State<IncomePointHistoryView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomAppBar(),
+      appBar: customAppBar(),
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) {
@@ -23,29 +23,37 @@ class _IncomePointHistoryViewState extends State<IncomePointHistoryView> {
               leading: CircleAvatar(
                 child: Text(
                   index.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColors.themeColor,
                   ),
                 ),
               ),
               title: Row(
                 children: [
-                  Text("Earning", style: Theme.of(context).textTheme.bodySmall,),
-                  Icon(Icons.star, color: AppColors.amber, size: 20,)
+                  Text(
+                    "Earning",
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  const Icon(
+                    Icons.star,
+                    color: AppColors.amber,
+                    size: 20,
+                  )
                 ],
               ),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Points: 100"),
+                  const Text("Points: 100"),
                   Text(
                     DateFormat.yMd()
                         .add_jms()
                         .format(DateTime.now())
                         .toString(),
-                    style: TextStyle(
-                        color: AppColors.grey,
-                        fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                      color: AppColors.grey,
+                      fontWeight: FontWeight.bold,
+                    ),
                   )
                 ],
               ),

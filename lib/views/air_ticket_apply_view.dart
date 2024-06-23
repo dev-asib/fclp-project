@@ -11,7 +11,7 @@ import 'package:fclp_app/views/air_ticket_user_requests_view.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 
 class AirTicketApplyView extends StatefulWidget {
-  const AirTicketApplyView({Key? key}) : super(key: key);
+  const AirTicketApplyView({super.key});
 
   @override
   State<AirTicketApplyView> createState() => _AirTicketApplyViewState();
@@ -22,13 +22,15 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
   Widget build(BuildContext context) {
     final airTicketController = Provider.of<AirTicketController>(context);
 
-    final selectedDepartureAirport = airTicketController.selectedDepartureAirport.isEmpty
-        ? airTicketController.airports.first
-        : airTicketController.selectedDepartureAirport;
+    final selectedDepartureAirport =
+        airTicketController.selectedDepartureAirport.isEmpty
+            ? airTicketController.airports.first
+            : airTicketController.selectedDepartureAirport;
 
-    final selectedArrivalAirport = airTicketController.selectedArrivalAirport.isEmpty
-        ? airTicketController.airports.last
-        : airTicketController.selectedArrivalAirport;
+    final selectedArrivalAirport =
+        airTicketController.selectedArrivalAirport.isEmpty
+            ? airTicketController.airports.last
+            : airTicketController.selectedArrivalAirport;
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -43,15 +45,17 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
                       location: "যাত্রা শুরু",
                       selectedAirport: selectedDepartureAirport,
                       onChanged: (value) {
-                       if(mounted){
-                         setState(() {
-                           airTicketController.selectedDepartureAirport =
-                               value ?? airTicketController.airports.first;
-                           if (airTicketController.isAirTicketApplyFormFilled) {
-                             airTicketController.updateDepartureAirport(value!);
-                           }
-                         });
-                       }
+                        if (mounted) {
+                          setState(() {
+                            airTicketController.selectedDepartureAirport =
+                                value ?? airTicketController.airports.first;
+                            if (airTicketController
+                                .isAirTicketApplyFormFilled) {
+                              airTicketController
+                                  .updateDepartureAirport(value!);
+                            }
+                          });
+                        }
                       },
                       airports: airTicketController.airports,
                     ),
@@ -66,15 +70,16 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
                       location: "যাত্রা শেষ",
                       selectedAirport: selectedArrivalAirport,
                       onChanged: (value) {
-                       if(mounted){
-                         setState(() {
-                           airTicketController.selectedArrivalAirport =
-                               value ?? airTicketController.airports.last;
-                           if (airTicketController.isAirTicketApplyFormFilled) {
-                             airTicketController.updateArrivalAirport(value!);
-                           }
-                         });
-                       }
+                        if (mounted) {
+                          setState(() {
+                            airTicketController.selectedArrivalAirport =
+                                value ?? airTicketController.airports.last;
+                            if (airTicketController
+                                .isAirTicketApplyFormFilled) {
+                              airTicketController.updateArrivalAirport(value!);
+                            }
+                          });
+                        }
                       },
                       airports: airTicketController.airports,
                     ),
@@ -93,37 +98,39 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
               Row(
                 children: [
                   Expanded(
-                    child: ticketSelector(
+                    child: TicketSelector(
                       ticket: airTicketController.ticket,
                       typeOfTicket: airTicketController.typeOfTicket,
                       onChanged: (String? newValue) {
-                       if(mounted){
-                         setState(() {
-                           airTicketController.ticket = newValue ??
-                               airTicketController.typeOfTicket.first;
-                           if (airTicketController.isAirTicketApplyFormFilled) {
-                             airTicketController.updateTicketType(newValue!);
-                           }
-                         });
-                       }
+                        if (mounted) {
+                          setState(() {
+                            airTicketController.ticket = newValue ??
+                                airTicketController.typeOfTicket.first;
+                            if (airTicketController
+                                .isAirTicketApplyFormFilled) {
+                              airTicketController.updateTicketType(newValue!);
+                            }
+                          });
+                        }
                       },
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
-                    child: travellerSelector(
+                    child: TravellerSelector(
                       countOfTravellers: airTicketController.countOfTravellers,
                       travellers: airTicketController.travellers,
                       onChanged: (String? newValue) {
-                      if(mounted){
-                        setState(() {
-                          airTicketController.countOfTravellers = newValue ??
-                              airTicketController.travellers.first;
-                          if (airTicketController.isAirTicketApplyFormFilled) {
-                            airTicketController.updateTravellers(newValue!);
-                          }
-                        });
-                      }
+                        if (mounted) {
+                          setState(() {
+                            airTicketController.countOfTravellers = newValue ??
+                                airTicketController.travellers.first;
+                            if (airTicketController
+                                .isAirTicketApplyFormFilled) {
+                              airTicketController.updateTravellers(newValue!);
+                            }
+                          });
+                        }
                       },
                     ),
                   ),
@@ -132,32 +139,39 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  if(mounted){
-                    setState(() {
-                      airTicketController.updateAirTicketApplyFormFilled(true);
+                  if (mounted) {
+                    setState(
+                      () {
+                        airTicketController
+                            .updateAirTicketApplyFormFilled(true);
 
-                      airTicketController.airTicketFormInfo.add(
-                        AirTicketModel(
-                          departureAirport:
-                          airTicketController.selectedDepartureAirport,
-                          arrivalAirport:
-                          airTicketController.selectedArrivalAirport,
-                          travelDateTime: airTicketController.date,
-                          ticketType: airTicketController.ticket,
-                          traveller: airTicketController.countOfTravellers,
-                        ),
-                      );
-                    });
+                        airTicketController.airTicketFormInfo.add(
+                          AirTicketModel(
+                            departureAirport:
+                                airTicketController.selectedDepartureAirport,
+                            arrivalAirport:
+                                airTicketController.selectedArrivalAirport,
+                            travelDateTime: airTicketController.date,
+                            ticketType: airTicketController.ticket,
+                            traveller: airTicketController.countOfTravellers,
+                          ),
+                        );
+                      },
+                    );
                   }
                   airticketSubmissionMessage(context);
                 },
                 child: const Text("সাবমিট করুন"),
               ),
-              SizedBox(height: 8,),
+              const SizedBox(
+                height: 8,
+              ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size.fromWidth(double.maxFinite),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8),),
+                  fixedSize: const Size.fromWidth(double.maxFinite),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                   backgroundColor: AppColors.white,
                   foregroundColor: AppColors.green,
                 ),
@@ -165,7 +179,7 @@ class _AirTicketApplyViewState extends State<AirTicketApplyView> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>  AirTicketUserRequestsView(
+                      builder: (context) => AirTicketUserRequestsView(
                         defaultArrivalAirport: selectedArrivalAirport,
                         defaultDepartureAirport: selectedDepartureAirport,
                       ),

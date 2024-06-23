@@ -14,44 +14,44 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomAppBar(),
-      drawer: CustomDrawer(
+      appBar: customAppBar(),
+      drawer: const CustomDrawer(
         fromHomeView: true,
       ),
       body: SingleChildScrollView(
-        child:  Column(
+        child: Column(
           children: [
-            WelcomeBanner(),
-            HelpServiceButtons(),
-            AirTicketBanner(),
-            ProductSeviceButtons(),
+            const WelcomeBanner(),
+            const HelpServiceButtons(),
+            const AirTicketBanner(),
+            const ProductSeviceButtons(),
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
-                margin: EdgeInsets.symmetric(vertical: 8),
+                margin: const EdgeInsets.symmetric(vertical: 8),
                 height: 40,
                 width: 200,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: AppColors.themeColor,
                     borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(50),
                       topRight: Radius.circular(50),
-                    )
-                ),
-                child: Center(
+                    )),
+                child: const Center(
                   child: FittedBox(
-                    child: Text("আপনার প্রয়োজনীয় পণ্য",
+                    child: Text(
+                      "আপনার প্রয়োজনীয় পণ্য",
                       style: TextStyle(
-                          color: AppColors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17
+                        color: AppColors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-            ProductGridView(),
+            const ProductGridView(),
           ],
         ),
       ),

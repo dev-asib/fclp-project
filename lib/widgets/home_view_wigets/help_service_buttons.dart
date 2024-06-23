@@ -1,6 +1,4 @@
 import 'package:fclp_app/Controllers/url_launcher_controller.dart';
-import 'package:fclp_app/utils/constants.dart';
-import 'package:fclp_app/views/news_paper_view.dart';
 import 'package:fclp_app/widgets/home_view_wigets/service_buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +8,10 @@ class HelpServiceButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
-      child: Row(
+      padding: const EdgeInsets.symmetric(
+        vertical: 10.0,
+      ),
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ServiceButtons(
@@ -22,7 +22,7 @@ class HelpServiceButtons extends StatelessWidget {
           ServiceButtons(
             imagePath: 'assets/youtube.png',
             label: 'ভিডিও দেখুন',
-            onTabService:UrlLauncherController.youTubeLauncheUrl,
+            onTabService: UrlLauncherController.youTubeLauncheUrl,
           ),
           ServiceButtons(
             imagePath: 'assets/telegram.png',

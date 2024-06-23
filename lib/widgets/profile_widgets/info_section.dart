@@ -8,18 +8,21 @@ Widget infoSection({
   return Container(
     height: 50,
     decoration: BoxDecoration(
-        color: AppColors.white, borderRadius: BorderRadius.circular(8)),
+      color: AppColors.white,
+      borderRadius: BorderRadius.circular(8),
+    ),
     child: Padding(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             "$titleHint: $title",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 17,
-                color: AppColors.themeColor),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 17,
+              color: AppColors.themeColor,
+            ),
           ),
         ],
       ),

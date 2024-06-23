@@ -2,7 +2,7 @@ import 'package:fclp_app/models/entities/product_model.dart';
 import 'package:flutter/material.dart';
 
 class ProductController extends ChangeNotifier {
-  List<ProductModel> _productData = [
+  final List<ProductModel> _productData = [
     ProductModel(
       id: 1,
       title: "Football N5",
@@ -135,7 +135,6 @@ class ProductController extends ChangeNotifier {
     ),
   ];
 
-
   final List<ProductModel> _shoppingCart = [];
 
   List<ProductModel> get productData => _productData;
@@ -144,12 +143,11 @@ class ProductController extends ChangeNotifier {
 
   List<ProductModel> get shoppingCart => _shoppingCart;
 
-  List<ProductModel> _wishList = [];
+  final List<ProductModel> _wishList = [];
 
-  List<ProductModel> _productShoppingCartList = [];
+  final List<ProductModel> _productShoppingCartList = [];
 
   List<ProductModel> get productShoppingCartList => _productShoppingCartList;
-
 
   void setToWishlistItem(ProductModel productItem) {
     if (productItem.isFavorite) {
@@ -181,8 +179,6 @@ class ProductController extends ChangeNotifier {
     notifyListeners();
   }
 
-
-
   void addToCart(int index, ProductModel product) {
     if (index >= 0 && index < productData.length) {
       if (!product.isShopping) {
@@ -209,7 +205,6 @@ class ProductController extends ChangeNotifier {
     }
   }
 
-
   void toggleFavoriteStatus(ProductModel product) {
     product.isFavorite = !product.isFavorite;
     if (product.isFavorite) {
@@ -220,7 +215,6 @@ class ProductController extends ChangeNotifier {
     notifyListeners();
   }
 
-
   double getTotalAmountForCartView() {
     double total = 0.0;
     for (ProductModel product in _productShoppingCartList) {
@@ -228,7 +222,6 @@ class ProductController extends ChangeNotifier {
     }
 
     return total;
-
   }
 
   void incrementCartProduct(ProductModel product) {
@@ -244,9 +237,9 @@ class ProductController extends ChangeNotifier {
   }
 
   double calculateDiscountedPrice(ProductModel product) {
-    return product.originalPrice - (product.discountPrice * product.originalPrice) / 100;
+    return product.originalPrice -
+        (product.discountPrice * product.originalPrice) / 100;
   }
-
 
   bool isWishlistEmpty() {
     return _wishList.isEmpty;
@@ -255,5 +248,4 @@ class ProductController extends ChangeNotifier {
   bool isCartEmpty() {
     return _shoppingCart.isEmpty;
   }
-
 }

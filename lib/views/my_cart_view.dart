@@ -8,7 +8,7 @@ import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/global_widgets/empty_widget.dart';
 
 class MyCartView extends StatefulWidget {
-  const MyCartView({Key? key}) : super(key: key);
+  const MyCartView({super.key});
 
   @override
   State<MyCartView> createState() => _MyCartViewState();
@@ -17,10 +17,8 @@ class MyCartView extends StatefulWidget {
 class _MyCartViewState extends State<MyCartView> {
   @override
   Widget build(BuildContext context) {
-    final productController = Provider.of<ProductController>(context);
-
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: customAppBar(),
       body: Consumer<ProductController>(
         builder: (context, productController, child) {
           return Visibility(
@@ -43,7 +41,7 @@ class _MyCartViewState extends State<MyCartView> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
+                            SizedBox(
                               height: 100,
                               width: 100,
                               child: ClipRRect(
@@ -52,40 +50,44 @@ class _MyCartViewState extends State<MyCartView> {
                                   product.img,
                                   fit: BoxFit.cover,
                                   errorBuilder: (context, error, stackTrace) {
-                                    return Center(
+                                    return const Center(
                                       child: Icon(Icons.error),
                                     );
                                   },
                                 ),
                               ),
                             ),
-                            SizedBox(width: 16),
+                            const SizedBox(width: 16),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     product.title,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
                                   Row(
                                     children: [
                                       Text(
-                                    "৳${productController.calculateDiscountedPrice(product).toStringAsFixed(2)}",
-                                        style: TextStyle(
+                                        "৳${productController.calculateDiscountedPrice(product).toStringAsFixed(2)}",
+                                        style: const TextStyle(
                                           color: AppColors.green,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
                                         ),
                                       ),
-                                      SizedBox(width: 8),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
                                       Text(
                                         "(৳${product.originalPrice.toString()})",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: AppColors.grey,
                                           decoration:
                                               TextDecoration.lineThrough,
@@ -93,7 +95,9 @@ class _MyCartViewState extends State<MyCartView> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
                                   Row(
                                     children: [
                                       InkWell(
@@ -111,22 +115,26 @@ class _MyCartViewState extends State<MyCartView> {
                                               width: 1.5,
                                             ),
                                           ),
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.add,
                                             color: AppColors.green,
                                             size: 20,
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 8),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
                                       Text(
                                         product.count.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      SizedBox(width: 8),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
                                       InkWell(
                                         onTap: () {
                                           productController
@@ -142,14 +150,13 @@ class _MyCartViewState extends State<MyCartView> {
                                               width: 1.5,
                                             ),
                                           ),
-                                          child: Icon(
+                                          child: const Icon(
                                             Icons.remove,
                                             color: AppColors.green,
                                             size: 20,
                                           ),
                                         ),
                                       ),
-
                                     ],
                                   ),
                                 ],
@@ -169,7 +176,7 @@ class _MyCartViewState extends State<MyCartView> {
                                     message:
                                         "Removed from cart: ${product.title}",
                                   ),
-                                  duration: Duration(seconds: 2),
+                                  duration: const Duration(seconds: 2),
                                   action: SnackBarAction(
                                     label: 'UNDO',
                                     onPressed: () {
@@ -180,7 +187,7 @@ class _MyCartViewState extends State<MyCartView> {
                                 ),
                               );
                             },
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.delete_outline,
                               color: AppColors.red,
                               size: 30,
@@ -201,14 +208,16 @@ class _MyCartViewState extends State<MyCartView> {
           return InkWell(
             onTap: () {
               Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => DeliveryAddressFormView()));
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DeliveryAddressFormView(),
+                ),
+              );
             },
             child: Container(
               height: 50,
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
               alignment: Alignment.center,
               color: AppColors.green,
               child: Row(
@@ -216,7 +225,7 @@ class _MyCartViewState extends State<MyCartView> {
                 children: [
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         "Total Amount: ",
                         style: TextStyle(
                           color: AppColors.white,
@@ -226,7 +235,7 @@ class _MyCartViewState extends State<MyCartView> {
                       ),
                       Text(
                         "৳${productController.getTotalAmountForCartView().toStringAsFixed(2)}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppColors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -234,7 +243,7 @@ class _MyCartViewState extends State<MyCartView> {
                       ),
                     ],
                   ),
-                  Row(
+                  const Row(
                     children: [
                       Text(
                         "Next",

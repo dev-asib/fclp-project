@@ -1,10 +1,11 @@
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
-Widget dateSelector(
-    {required BuildContext context,
-    required String date,
-    required VoidCallback datePicked}) {
+Widget dateSelector({
+  required BuildContext context,
+  required String date,
+  required VoidCallback datePicked,
+}) {
   return InkWell(
     onTap: datePicked,
     child: Container(
@@ -13,7 +14,7 @@ Widget dateSelector(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
       ),
-      padding: EdgeInsets.all(18),
+      padding: const EdgeInsets.all(18),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -21,7 +22,7 @@ Widget dateSelector(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "ভ্রমন এর তারিখ",
                   style: TextStyle(
                     fontSize: 17,
@@ -29,10 +30,12 @@ Widget dateSelector(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(
+                  height: 5,
+                ),
                 Text(
-                  "$date",
-                  style: TextStyle(
+                  date,
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 17,
                     color: AppColors.green,
@@ -41,7 +44,7 @@ Widget dateSelector(
               ],
             ),
           ),
-          Icon(
+          const Icon(
             Icons.calendar_today,
             color: AppColors.green,
           ),

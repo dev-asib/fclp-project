@@ -1,10 +1,10 @@
+import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/global_widgets/warning_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BusinessAccountLoginFormSection extends StatefulWidget {
-  BusinessAccountLoginFormSection({super.key});
+  const BusinessAccountLoginFormSection({super.key});
 
   @override
   State<BusinessAccountLoginFormSection> createState() =>
@@ -28,14 +28,16 @@ class _BusinessAccountLoginFormSectionState
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
           color: AppColors.green,
-          width: 3
-        )
+          width: 3,
+        ),
       ),
       child: Form(
         key: _formKey,
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 24,
+          ),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -46,27 +48,22 @@ class _BusinessAccountLoginFormSectionState
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                          color: AppColors.textFormFieldBorderColor,
-                          width: 2),
+                        color: AppColors.textFormFieldBorderColor,
+                        width: 2,
+                      ),
                     ),
                   ),
                   child: TextFormField(
                     controller: _mobileTEController,
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "মোবাইল নাম্বার",
                       prefixIcon: Icon(
                         Icons.phone_outlined,
                         size: 30,
                       ),
                     ),
-                    validator: (String? mobileNumber) {
-                      if (mobileNumber!.trim().length > 11 ||
-                          mobileNumber.trim().length < 11) {
-                        return "মোবাইল নাম্বার ১১ ডিজিট হতে হবে।";
-                      }
-                      return null;
-                    },
+                    validator: FormValidationController.validatePassword,
                   ),
                 ),
                 const SizedBox(
@@ -76,8 +73,9 @@ class _BusinessAccountLoginFormSectionState
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                          color: AppColors.textFormFieldBorderColor,
-                          width: 2),
+                        color: AppColors.textFormFieldBorderColor,
+                        width: 2,
+                      ),
                     ),
                   ),
                   child: TextFormField(
@@ -86,7 +84,7 @@ class _BusinessAccountLoginFormSectionState
                     obscureText: passwordVisibility,
                     decoration: InputDecoration(
                       hintText: "পাসওয়ার্ড",
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.lock_outline,
                         size: 30,
                       ),
@@ -99,24 +97,17 @@ class _BusinessAccountLoginFormSectionState
                           }
                         },
                         child: passwordVisibility == true
-                            ? Icon(
+                            ? const Icon(
                                 Icons.visibility_off,
                                 size: 30,
                               )
-                            : Icon(
+                            : const Icon(
                                 Icons.visibility,
                                 size: 30,
                               ),
                       ),
                     ),
-                    validator: (String? password) {
-                      if (password?.trim().isEmpty ?? true) {
-                        return "পাসওয়ার্ড কবশ্যই দিতে হবে।";
-                      } else if (password!.length < 6) {
-                        return "পাসওয়ার্ড অবশ্যই ৬ ডিজিট বা তার বেশি হতে হবে।";
-                      }
-                      return null;
-                    },
+                    validator: FormValidationController.validatePassword,
                   ),
                 ),
                 Align(
@@ -133,17 +124,21 @@ class _BusinessAccountLoginFormSectionState
                   height: 50,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {}
-                  },
-                  child: Text("লগইন করুন"),
+                  onPressed: () => FormValidationController.handleLogin(
+                    context,
+                    _formKey,
+                  ),
+                  child: const Text("লগইন করুন"),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   "এখনো একাউন্ট করেন নি?",
-                  style: TextStyle(color: Colors.black, fontSize: 16),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -156,7 +151,7 @@ class _BusinessAccountLoginFormSectionState
                           "মোবাইল নাম্বার এবং পাসওয়ার্ড অবশ্যই দিতে হবে।",
                     );
                   },
-                  child: Text("রেজিস্ট্রেশন করুন"),
+                  child: const Text("রেজিস্ট্রেশন করুন"),
                 ),
                 const SizedBox(
                   height: 50,

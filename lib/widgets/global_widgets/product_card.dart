@@ -53,7 +53,10 @@ class ProductCard extends StatelessWidget {
               Expanded(
                 flex: 1,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 8, top: 5),
+                  padding: const EdgeInsets.only(
+                    left: 8,
+                    top: 5,
+                  ),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +64,7 @@ class ProductCard extends StatelessWidget {
                         Text(
                           productTitle,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                             color: AppColors.themeColor,
@@ -72,17 +75,19 @@ class ProductCard extends StatelessWidget {
                             Text(
                               "ট\t$productDiscountPrice",
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 17.0,
                                 color: AppColors.red,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(width: 5),
+                            const SizedBox(
+                              width: 5,
+                            ),
                             Text(
                               productOriginalPrice,
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 15.0,
                                 color: AppColors.grey,
                                 fontWeight: FontWeight.bold,
@@ -117,4 +122,3 @@ class ProductCard extends StatelessWidget {
     );
   }
 }
-

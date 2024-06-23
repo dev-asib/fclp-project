@@ -6,8 +6,12 @@ class ServiceButtons extends StatelessWidget {
   final String label;
   final VoidCallback? onTabService;
 
-  ServiceButtons(
-      {required this.imagePath, required this.label, required this.onTabService});
+  const ServiceButtons({
+    super.key,
+    required this.imagePath,
+    required this.label,
+    required this.onTabService,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +24,15 @@ class ServiceButtons extends StatelessWidget {
               color: AppColors.white,
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.circular(30.0),
-              border: Border.all(color: AppColors.themeColor, width: 2.0),
+              border: Border.all(
+                color: AppColors.themeColor,
+                width: 2.0,
+              ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+              ),
               child: Image.asset(
                 imagePath,
                 height: 40.0,
@@ -31,10 +40,13 @@ class ServiceButtons extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 5.0),
+          const SizedBox(height: 5.0),
           Text(
             label,
-            style: TextStyle(color: Colors.black, fontSize: 12.0),
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 12.0,
+            ),
             textAlign: TextAlign.center,
           ),
         ],

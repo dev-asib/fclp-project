@@ -24,30 +24,34 @@ class _OrderConfirmationViewState extends State<OrderConfirmationView> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Lottie.asset(AssetsPahts.delivery),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       "অর্ডার কনফার্মড",
                       style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "BlackOpsOne",
-                          color: AppColors.themeColor),
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "BlackOpsOne",
+                        color: AppColors.themeColor,
+                      ),
                     ),
-                    Text(
+                    const Text(
                       textAlign: TextAlign.center,
                       "আমরা অবিলম্বে আপনার অর্ডার পৌঁছে দেব,আপনার অর্ডার দোরগোড়ায় রাখা নিশ্চিত করুন।",
                       style: TextStyle(
-                          color: AppColors.green,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
+                        color: AppColors.green,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 16,
                     ),
                     InkWell(
@@ -56,17 +60,18 @@ class _OrderConfirmationViewState extends State<OrderConfirmationView> {
                             context,
                             MaterialPageRoute(
                               builder: (context) => MainBottomNavView(),
-                            ), (route)=>false
-                        );
+                            ),
+                            (route) => false);
                       },
                       child: Container(
                         height: 60,
                         alignment: Alignment.center,
                         width: SizeConfig.screenWidth! / 1.8,
                         decoration: BoxDecoration(
-                            color: AppColors.green,
-                            borderRadius: BorderRadius.circular(8)),
-                        child: Text(
+                          color: AppColors.green,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Text(
                           "Check Order Status",
                           style: TextStyle(
                             color: AppColors.white,

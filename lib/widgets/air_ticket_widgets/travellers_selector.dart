@@ -1,12 +1,13 @@
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
-class travellerSelector extends StatelessWidget {
+class TravellerSelector extends StatelessWidget {
   final String countOfTravellers;
   final List<String> travellers;
   final ValueChanged<String?>? onChanged;
 
-  const travellerSelector({
+  const TravellerSelector({
+    super.key,
     required this.countOfTravellers,
     required this.travellers,
     required this.onChanged,
@@ -20,12 +21,12 @@ class travellerSelector extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       width: double.infinity,
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "ভ্রমণকারীর সংখ্যা",
             style: TextStyle(
               color: AppColors.green,
@@ -37,13 +38,13 @@ class travellerSelector extends StatelessWidget {
             child: DropdownButton<String>(
               value: countOfTravellers,
               dropdownColor: Colors.white,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 20,
                 color: AppColors.green,
               ),
               iconSize: 40,
-              icon: Icon(Icons.arrow_drop_down),
+              icon: const Icon(Icons.arrow_drop_down),
               iconEnabledColor: AppColors.green,
               isDense: true,
               isExpanded: true,
@@ -52,15 +53,17 @@ class travellerSelector extends StatelessWidget {
               alignment: AlignmentDirectional.center,
               borderRadius: BorderRadius.circular(20),
               elevation: 16,
-              items: travellers.map((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(
-                    value,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                );
-              }).toList(),
+              items: travellers.map(
+                (String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(
+                      value,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  );
+                },
+              ).toList(),
               onChanged: onChanged,
             ),
           ),

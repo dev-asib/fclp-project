@@ -10,10 +10,12 @@ class WelcomeBanner extends StatelessWidget {
     return Container(
       height: 200,
       width: double.maxFinite,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: AppColors.white,
         image: DecorationImage(
-          image: AssetImage(AssetsPahts.welcome),
+          image: AssetImage(
+            AssetsPahts.welcome,
+          ),
           fit: BoxFit.fill,
         ),
       ),

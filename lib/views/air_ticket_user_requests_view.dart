@@ -3,17 +3,16 @@ import 'package:provider/provider.dart';
 import 'package:fclp_app/Controllers/air_ticket_controller.dart';
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
-import 'package:fclp_app/widgets/global_widgets/custom_drawer.dart';
 
 class AirTicketUserRequestsView extends StatefulWidget {
   const AirTicketUserRequestsView({
     super.key,
-   required this.defaultDepartureAirport,
-   required this.defaultArrivalAirport,
+    required this.defaultDepartureAirport,
+    required this.defaultArrivalAirport,
   });
 
-  final defaultDepartureAirport;
-  final defaultArrivalAirport;
+  final dynamic defaultDepartureAirport;
+  final dynamic defaultArrivalAirport;
 
   @override
   State<AirTicketUserRequestsView> createState() =>
@@ -26,7 +25,7 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
     final airTicketController = Provider.of<AirTicketController>(context);
 
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: customAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: ListView.builder(
@@ -39,13 +38,12 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
               child: Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: AppColors.white,
-                  border: Border.all(
-                    color: AppColors.green,
-                    width: 3,
-                  ),
-                  borderRadius: BorderRadius.circular(16)
-                ),
+                    color: AppColors.white,
+                    border: Border.all(
+                      color: AppColors.green,
+                      width: 3,
+                    ),
+                    borderRadius: BorderRadius.circular(16)),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,10 +64,12 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Text(
                         "আবেদন নংঃ ${index + 1}",
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppColors.green,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -85,7 +85,8 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                         ),
                       ),
                       Text(
-                        formInfo.departureAirport['airport'] ?? widget.defaultDepartureAirport['airport'],
+                        formInfo.departureAirport['airport'] ??
+                            widget.defaultDepartureAirport['airport'],
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: AppColors.green,
@@ -102,7 +103,8 @@ class _AirTicketUserRequestsViewState extends State<AirTicketUserRequestsView> {
                         ),
                       ),
                       Text(
-                        formInfo.arrivalAirport['airport'] ?? widget.defaultArrivalAirport['airport'],
+                        formInfo.arrivalAirport['airport'] ??
+                            widget.defaultArrivalAirport['airport'],
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: AppColors.green,

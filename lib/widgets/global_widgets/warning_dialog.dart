@@ -1,7 +1,10 @@
 import 'package:fclp_app/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
-void warnignDialog({ required BuildContext context, required String warningDescription}) {
+void warnignDialog({
+  required BuildContext context,
+  required String warningDescription,
+}) {
   showDialog(
       context: context,
       builder: (context) {
@@ -10,34 +13,35 @@ void warnignDialog({ required BuildContext context, required String warningDescr
             height: 250,
             width: 350,
             decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(16)),
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(16),
+            ),
             child: Stack(
               alignment: Alignment.topCenter,
               clipBehavior: Clip.none,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(24),
+                  padding: const EdgeInsets.all(24),
                   child: Column(
-                    mainAxisAlignment:
-                    MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(height: 20,),
-
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         alignment: Alignment.center,
                         width: double.maxFinite,
                         decoration: BoxDecoration(
                           color: AppColors.white,
                           border: Border(
-                            bottom: BorderSide(
-                                color: Colors.grey.shade200
-                            ),
+                            bottom: BorderSide(color: Colors.grey.shade200),
                           ),
                         ),
-                        child: Text("Warning", style: Theme.of(context).textTheme.titleLarge,),
+                        child: Text(
+                          "Warning",
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
                       ),
-
                       Text(
                         textAlign: TextAlign.center,
                         warningDescription,
@@ -48,10 +52,11 @@ void warnignDialog({ required BuildContext context, required String warningDescr
                         ),
                       ),
                       ElevatedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text("CLOSE"))
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text("CLOSE"),
+                      )
                     ],
                   ),
                 ),
@@ -60,11 +65,15 @@ void warnignDialog({ required BuildContext context, required String warningDescr
                   child: Container(
                     height: 80,
                     width: 80,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: AppColors.green,
                       shape: BoxShape.circle,
                     ),
-                    child: Icon(Icons.warning, color: AppColors.white, size: 40,),
+                    child: const Icon(
+                      Icons.warning,
+                      color: AppColors.white,
+                      size: 40,
+                    ),
                   ),
                 ),
               ],

@@ -13,45 +13,57 @@ class OnlineShopCategoryView extends StatefulWidget {
 }
 
 class _OnlineShopCategoryViewState extends State<OnlineShopCategoryView> {
-  
   @override
   Widget build(BuildContext context) {
-   final produdctController = Provider.of<ProdudctCategoryViewController>(context);
+    final produdctController =
+        Provider.of<ProdudctCategoryViewController>(context);
     return Scaffold(
-      appBar:CustomAppBar(),
+      appBar: customAppBar(),
       body: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: GridView.builder(
           itemCount: produdctController.productCategoryViewData.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3
-        ), itemBuilder: (context, index){
-          return InkWell(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ProductView()));
-            },
-            child: Card(
-              child: Container(
-                height: 150,
-                width: 150,
-                child: FittedBox(
-                  child: Column(
-                    children: [
-                      Container(
-                        child: Image.asset(produdctController.productCategoryViewData[index]['img'], height: 50,),
-                      ),
-                      Text(produdctController.productCategoryViewData[index]['title'], style: TextStyle(
-                        color: AppColors.green,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                      ),)
-                    ],
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3),
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ProductView(),
+                  ),
+                );
+              },
+              child: Card(
+                child: SizedBox(
+                  height: 150,
+                  width: 150,
+                  child: FittedBox(
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          produdctController.productCategoryViewData[index]
+                              ['img'],
+                          height: 50,
+                        ),
+                        Text(
+                          produdctController.productCategoryViewData[index]
+                              ['title'],
+                          style: const TextStyle(
+                            color: AppColors.green,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          );
-        }),
+            );
+          },
+        ),
       ),
     );
   }

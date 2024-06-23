@@ -14,33 +14,35 @@ class _AirTicketViewState extends State<AirTicketView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: customAppBar(),
       body: Column(
         children: [
           Container(
             height: 50,
-            margin: EdgeInsets.all(16),
+            margin: const EdgeInsets.all(16),
             width: double.maxFinite,
             decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 color: AppColors.green,
-                width: 3
+                width: 3,
               ),
             ),
-            child: Center(
+            child: const Center(
               child: Text(
                 "এয়ার টিকেট এর আবেদন",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: AppColors.green
+                  color: AppColors.green,
                 ),
               ),
             ),
           ),
-          Expanded(child: AirTicketApplyView()),
+          const Expanded(
+            child: AirTicketApplyView(),
+          ),
         ],
       ),
     );

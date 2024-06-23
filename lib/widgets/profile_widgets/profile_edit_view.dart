@@ -1,7 +1,6 @@
 import 'package:fclp_app/Controllers/form_validation_controller.dart';
 import 'package:fclp_app/Controllers/profile_controller.dart';
 import 'package:fclp_app/widgets/profile_widgets/form_input_decoration.dart';
-import 'package:fclp_app/widgets/global_widgets/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,14 +14,16 @@ class ProfileEditView extends StatefulWidget {
 class _ProfileEditViewState extends State<ProfileEditView> {
   final TextEditingController _newNameController = TextEditingController();
   final TextEditingController _newEmailController = TextEditingController();
-  final TextEditingController _newMobileNumberController = TextEditingController();
+  final TextEditingController _newMobileNumberController =
+      TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
 
-    final profileController = Provider.of<ProfileController>(context, listen: false);
+    final profileController =
+        Provider.of<ProfileController>(context, listen: false);
     _newNameController.text = profileController.name;
     _newEmailController.text = profileController.email;
     _newMobileNumberController.text = profileController.mobileNumber;
@@ -30,8 +31,6 @@ class _ProfileEditViewState extends State<ProfileEditView> {
 
   @override
   Widget build(BuildContext context) {
-    final profileController = Provider.of<ProfileController>(context);
-
     return Form(
       autovalidateMode: AutovalidateMode.onUserInteraction,
       key: _formKey,
@@ -43,27 +42,30 @@ class _ProfileEditViewState extends State<ProfileEditView> {
             decoration: formInputDecoration(),
             validator: FormValidationController.validateName,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           TextFormField(
             controller: _newEmailController,
             keyboardType: TextInputType.emailAddress,
             decoration: formInputDecoration(),
             validator: FormValidationController.validateEmail,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           TextFormField(
             controller: _newMobileNumberController,
             keyboardType: TextInputType.number,
             decoration: formInputDecoration(),
             validator: FormValidationController.validateMobileNumber,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              fixedSize: Size.fromWidth(110),
-              textStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              fixedSize: const Size.fromWidth(110),
+              textStyle: const TextStyle(
+                fontSize: 17,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            onPressed:(){
+            onPressed: () {
               FormValidationController.handleSave(
                 context,
                 _formKey,
@@ -72,7 +74,7 @@ class _ProfileEditViewState extends State<ProfileEditView> {
                 _newMobileNumberController,
               );
             },
-            child: Text("Save"),
+            child: const Text("Save"),
           ),
         ],
       ),

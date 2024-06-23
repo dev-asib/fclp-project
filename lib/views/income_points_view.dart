@@ -6,6 +6,7 @@ import 'package:fclp_app/views/auth_view/nagad_point_withdraw_form_view.dart';
 import 'package:fclp_app/views/point_withdraw_history_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_drawer.dart';
+import 'package:fclp_app/widgets/icome_view_widgets/payment_info_section_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -22,13 +23,13 @@ class _IncomePointsViewState extends State<IncomePointsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomAppBar(),
-      drawer: CustomDrawer(
+      appBar: customAppBar(),
+      drawer: const CustomDrawer(
         fromIncomePointView: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             children: [
               Card(
@@ -43,32 +44,35 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                       Container(
                         height: 100,
                         width: 100,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              image: AssetImage("assets/images/earning.png"),
-                              fit: BoxFit.fill),
+                            image: AssetImage("assets/images/earning.png"),
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       ),
-                      Text(
+                      const Text(
                         "আমার ইনকাম পয়েন্ট",
                         style: TextStyle(
-                            color: AppColors.green,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
+                          color: AppColors.green,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
                       ),
-                      Text(
+                      const Text(
                         "ট 100",
                         style: TextStyle(
-                            color: AppColors.red,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                          color: AppColors.red,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               buildPaymentInfoSection(
@@ -78,7 +82,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                 title: "আপনার পয়েন্ট উত্তোলনের হিস্ট্রি।",
                 onTap: _onTapPointWithfrawHistoryButton,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Card(
@@ -91,7 +95,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                       });
                     }
                   },
-                  leading: Container(
+                  leading: SizedBox(
                     height: 30,
                     width: 30,
                     child: Image.asset(
@@ -99,12 +103,13 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                       fit: BoxFit.fill,
                     ),
                   ),
-                  title: Text(
+                  title: const Text(
                     "ইনকাম পয়েন্টস উত্তোলন করুন।",
                     style: TextStyle(
-                        color: AppColors.green,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                      color: AppColors.green,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   trailing: Icon(
                     isPaymentIcon == true
@@ -117,8 +122,8 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                     Container(
                       height: 100,
                       width: double.maxFinite,
-                      decoration: BoxDecoration(),
-                      padding: EdgeInsets.all(16),
+                      decoration: const BoxDecoration(),
+                      padding: const EdgeInsets.all(16),
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
@@ -145,7 +150,7 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               buildPaymentInfoSection(
@@ -156,43 +161,6 @@ class _IncomePointsViewState extends State<IncomePointsView> {
                 onTap: _onTapIncomePointHistoryButton,
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  InkWell buildPaymentInfoSection({
-    required BuildContext context,
-    required String leadingIcon,
-    required IconData trailingIcon,
-    required String title,
-    required VoidCallback? onTap,
-  }) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        color: AppColors.white,
-        child: ListTile(
-          leading: Container(
-            height: 30,
-            width: 30,
-            child: Image.asset(
-              leadingIcon,
-              fit: BoxFit.fill,
-            ),
-          ),
-          title: Text(
-            title,
-            style: TextStyle(
-                color: AppColors.green,
-                fontSize: 15,
-                fontWeight: FontWeight.bold),
-          ),
-          trailing: Icon(
-            trailingIcon,
-            color: AppColors.green,
-            size: 30,
           ),
         ),
       ),

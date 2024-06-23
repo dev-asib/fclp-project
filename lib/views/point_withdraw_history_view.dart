@@ -2,7 +2,6 @@ import 'package:fclp_app/utils/color_palette.dart';
 import 'package:fclp_app/views/bkash_withdraw_history_view.dart';
 import 'package:fclp_app/views/nagad_withdraw_history_view.dart';
 import 'package:fclp_app/widgets/global_widgets/custom_app_bar.dart';
-import 'package:fclp_app/widgets/global_widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class PointWithdrawHistoryView extends StatefulWidget {
@@ -19,8 +18,8 @@ class _PointWithdrawHistoryViewState extends State<PointWithdrawHistoryView> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar:CustomAppBar(),
-        body: Column(
+        appBar: customAppBar(),
+        body: const Column(
           children: [
             TabBar(
               dividerColor: Colors.white,
@@ -28,7 +27,7 @@ class _PointWithdrawHistoryViewState extends State<PointWithdrawHistoryView> {
               indicatorColor: AppColors.themeColor,
               labelStyle: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20
+                fontSize: 20,
               ),
               unselectedLabelColor: AppColors.red,
               tabs: [
